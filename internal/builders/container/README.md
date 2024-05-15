@@ -73,7 +73,7 @@ provenance:
     id-token: write # for creating OIDC tokens for signing.
     packages: write # for uploading attestations.
   if: startsWith(github.ref, 'refs/tags/')
-  uses: slsa-framework/slsa-github-generator/.github/workflows/generator_container_slsa3.yml@v1.10.0
+  uses: slsa-framework/slsa-github-generator/.github/workflows/generator_container_slsa3.yml@v2.0.0
   with:
     image: ${{ needs.build.outputs.image }}
     digest: ${{ needs.build.outputs.digest }}
@@ -144,7 +144,7 @@ jobs:
       id-token: write # for creating OIDC tokens for signing.
       packages: write # for uploading attestations.
     if: startsWith(github.ref, 'refs/tags/')
-    uses: slsa-framework/slsa-github-generator/.github/workflows/generator_container_slsa3.yml@v1.10.0
+    uses: slsa-framework/slsa-github-generator/.github/workflows/generator_container_slsa3.yml@v2.0.0
     with:
       image: ${{ needs.build.outputs.image }}
       digest: ${{ needs.build.outputs.digest }}
@@ -373,7 +373,7 @@ This section explains how to generate non-forgeable SLSA provenance with existin
        # contents: read
        packages: write
      if: startsWith(github.ref, 'refs/tags/')
-     uses: slsa-framework/slsa-github-generator/.github/workflows/generator_container_slsa3.yml@v1.10.0
+     uses: slsa-framework/slsa-github-generator/.github/workflows/generator_container_slsa3.yml@v2.0.0
      with:
        image: ${{ needs.build.outputs.image }}
        digest: ${{ needs.build.outputs.digest }}
@@ -399,7 +399,7 @@ This section explains how to generate non-forgeable SLSA provenance with existin
          - name: Checkout the repository
            uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # v2.3.4
 
-         - uses: actions/setup-go@v3.3.0
+         - uses: actions/setup-go@v5.0.1
            with:
              go-version: 1.19
 
@@ -438,7 +438,7 @@ This section explains how to generate non-forgeable SLSA provenance with existin
          # contents: read
          packages: write
        if: startsWith(github.ref, 'refs/tags/')
-       uses: slsa-framework/slsa-github-generator/.github/workflows/generator_container_slsa3.yml@v1.10.0
+       uses: slsa-framework/slsa-github-generator/.github/workflows/generator_container_slsa3.yml@v2.0.0
        with:
          image: ${{ needs.build.outputs.image }}
          digest: ${{ needs.build.outputs.digest }}
