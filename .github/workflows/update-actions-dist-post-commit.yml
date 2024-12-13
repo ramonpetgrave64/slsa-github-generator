@@ -62,6 +62,7 @@ jobs:
             | xargs -I {} sh -c '(
               echo "Updating {}" && \
               cd {} && \
+              npm audit fix && \
               make clean \
               && make package
             )'
