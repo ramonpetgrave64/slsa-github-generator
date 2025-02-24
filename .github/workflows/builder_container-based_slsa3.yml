@@ -197,7 +197,7 @@ jobs:
     steps:
       - name: Generate builder binary
         id: generate
-        uses: slsa-framework/slsa-github-generator/.github/actions/generate-builder@v2.1.0-rc.3
+        uses: ramonpetgrave64/slsa-github-generator/.github/actions/generate-builder@v2.1.0-rc.3
         with:
           repository: "${{ needs.detect-env.outputs.repository }}"
           ref: "${{ needs.detect-env.outputs.ref }}"
@@ -207,6 +207,7 @@ jobs:
           compile-builder: "${{ inputs.compile-builder }}"
           directory: "${{ env.BUILDER_DIR }}"
           allow-private-repository: ${{ inputs.rekor-log-public }}
+          testing: true
 
       - name: Upload builder
         uses: actions/upload-artifact@65c4c4a1ddee5b72f698fdd19549f0f0fb45cf08 # v4.6.0
